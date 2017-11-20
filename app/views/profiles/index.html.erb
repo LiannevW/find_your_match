@@ -1,0 +1,7 @@
+<h1>This is a list of all students and admins that create a profile</h1>
+
+<% @profiles.each do |profile| %>
+  <p><%= profile.first_name %> <%= profile.last_name %>  </p>
+  <p><%= link_to "Change authorization" %> </p>
+
+<% end %>
