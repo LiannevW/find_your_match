@@ -1,6 +1,6 @@
-
-User.destroy_all
 Profile.destroy_all
+User.destroy_all
+
 
 #Profiles
 profile_1 = Profile.create!(first_name: "Marleen", last_name: "Kragting", is_admin: true )
