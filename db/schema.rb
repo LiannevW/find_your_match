@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120123730) do
+ActiveRecord::Schema.define(version: 20171121104146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "match_id", null: false
+    t.index ["match_id", "user_id"], name: "index_matches_users_on_match_id_and_user_id"
+    t.index ["user_id", "match_id"], name: "index_matches_users_on_user_id_and_match_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"

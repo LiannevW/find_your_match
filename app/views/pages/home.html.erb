@@ -1,24 +1,34 @@
 <div class="row">
 
-  <div class="col-md-9">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        All users
-      </div>
-      <div class="panel-body">
+<div class="col-md-9">
+<div class="panel panel-primary">
+<div class="panel-heading">
+All users
+</div>
+<div class="panel-body">
 
-        <% @users.each do |user| %>
-        <div class="row">
-          <div class="col-md-3">
-            <h4><%= link_to user.full_name, root_path %></h4>
-          </div>
+<div class="row">
+<div class="col-md-3">
+<% if @matches %>
+<h4>Today's couples are: </h4>
+<% @matches.each do |match| %>
+<%= match.users[0].profile.full_name %> + <%= match.users[1].profile.full_name %>
+<% end %>
 
-        </div>
-        <% end %>
+<% end %>
 
-      </div>
-    </div>
+<% if @match %>
+<h4>You pair today is: </h4>
+<%= @match.users[1].profile.full_name %>
+<% end %>
+</div>
+</div>
 
-  </div>
+
+</div>
+
+</div>
+
+</div>
 
 </div>

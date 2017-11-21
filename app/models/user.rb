@@ -7,6 +7,7 @@ class User < ApplicationRecord
   after_initialize :default_values
 
   has_one :profile, dependent: :destroy
+  has_and_belongs_to_many :matches
 
   def has_profile?
     profile.present? && profile.persisted?
