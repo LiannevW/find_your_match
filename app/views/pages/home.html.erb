@@ -38,12 +38,7 @@
           <div class="row">
             <div class="col-md-5">
               <% @users.each do |user| %>
-                <h4><%= link_to user.full_name, root_path %></h4>
-                <label class="admin-select">
-                  <%= check_box_tag 'is_admin', user.profile.is_admin, true %>
-                  <h5>Student
-                  </h5>
-                </label>
+                <h4><%= link_to user.full_name, edit_profile_path(user.profile.id) %></h4>
               <% end %>
             </div>
           </div>
