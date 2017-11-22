@@ -5,7 +5,7 @@
 
 $(document).ready(
   function() {
-$( "#calendar_input" ).change(function() {
+$( "#calendar_input").change(function() {
   window.location = "http://localhost:3000/matches?date=2017-11-22";
 });
 });

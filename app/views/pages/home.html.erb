@@ -32,15 +32,18 @@
     <% if @users %>
       <div class="panel panel-primary">
         <div class="panel-heading">
-          All users
+          Here you can change the status of the users:
         </div>
         <div class="panel-body">
           <div class="row">
             <div class="col-md-5">
-
               <% @users.each do |user| %>
                 <h4><%= link_to user.full_name, root_path %></h4>
-
+                <label class="admin-select">
+                  <%= check_box_tag 'is_admin', user.profile.is_admin, true %>
+                  <h5>Student
+                  </h5>
+                </label>
               <% end %>
             </div>
           </div>
