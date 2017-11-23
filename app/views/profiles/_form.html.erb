@@ -13,6 +13,12 @@
     <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
   </div>
 
+  <label>Admin?</label>
+
+  <div class="form-group">
+    <%= f.check_box :is_admin %> Active
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Save", class: "btn btn-primary" %>

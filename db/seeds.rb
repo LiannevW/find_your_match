@@ -22,6 +22,6 @@ user_6 = User.create!(email: "user6@gmail.com", password: "87654321", profile: p
 user_7 = User.create!(email: "user7@gmail.com", password: "987654321", profile: profile_7 )
 
 # Matches
-match_1 = Match.create!(date: DateTime.new(2017,11,21), users: [user_2, user_3])
+match_1 = Match.create!(date: DateTime.new(2017,11,22), users: [user_2, user_3])
 match_2 = Match.create!(date: DateTime.new(2017,11,20), users: [user_4, user_5])
 match_3 = Match.create!(date: DateTime.new(2017,11,19), users: [user_6, user_7])

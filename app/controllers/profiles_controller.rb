@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-before_action :set_profile, only: [:edit, :update]
 before_action :authenticate_user!
 
 def index
@@ -21,20 +20,19 @@ end
  end
 
  def edit
+   @profile = Profile.find(params[:id])
  end
 
  def update
-   if @profile.update(profile_params)
-     redirect_to edit_profile_path(@profile), notice: "Profile successfully updated"
+   profile = Profile.find(params[:id])
+   if profile.update(profile_params)
+     redirect_to root_path, notice: "Profile successfully updated"
    else
      render :edit
    end
  end
 
  private
-   def set_profile
-     @profile = current_user.profile
-   end
 
    def profile_params
      params.require(:profile).permit(:first_name, :last_name, :is_admin)
