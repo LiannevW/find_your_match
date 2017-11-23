@@ -1,0 +1,4 @@
+<h1>All days</h1>
+  <p> <% @days.each do |day| %> </p>
+  <p><%=link_to day.name, day_path(day.id)%></p>
+  <p><% end %></p>
