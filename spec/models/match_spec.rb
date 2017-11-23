@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Match, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    it "is invalid without a date" do
+      match = Match.new(date: nil)
+      match.valid?
+      expect(match.errors).to have_key(:date)
+    end
+  end
 end
