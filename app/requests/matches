@@ -1,6 +1,0 @@
-curl \
--H "X-USER-TOKEN: sSQgN66UyM76oCPcNwWCaBUD" \
--H "Content-Type: application/json" \
-'http://localhost:3000/api/matches?date=2017-11-19'
-
-User.all for token

@@ -12,4 +12,6 @@ class Profile < ApplicationRecord
   def default_values
     self.is_admin ||= false
   end
+
+  
 end
