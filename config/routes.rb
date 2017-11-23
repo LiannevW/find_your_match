@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :days
   namespace :api do
     resources :matches
   end
