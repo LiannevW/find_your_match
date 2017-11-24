@@ -1,6 +1,24 @@
+require_relative '../models/algorithm'
+
 class MatchesController < ApplicationController
   def index
-    date_matches = Match.where(date: DateTime.parse(params[:date]))
+
+    date_from_params = DateTime.parse(params[:date])
+    #google how to get in ruby day of the week
+    #you will have variable that has day of the week
+    date_matches = Match.where(date: date_from_params)
+    date_number = date_from_params.cwday
+    if date_matches.length == 0
+          # run algorithm that returns matches
+          algoritmer = Algorithm.new
+          algoritmer.create_days(date_number, User.all)
+          pairs = algoritmer.create_pairs_for_one_day()
+          date_matches = []
+          pairs.each do |generated_pair|
+            date_matches.push(Match.new(date: date_from_params, users: generated_pair))
+          end
+        end
+
     current_user_match = nil
 
     date_matches.each do |match|
