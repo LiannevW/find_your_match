@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121210831) do
+ActiveRecord::Schema.define(version: 20171123192049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "days", force: :cascade do |t|
+    t.string "name"
+    t.string "date"
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "days_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "day_id", null: false
+    t.index ["day_id", "user_id"], name: "index_days_users_on_day_id_and_user_id"
+    t.index ["user_id", "day_id"], name: "index_days_users_on_user_id_and_day_id"
+  end
 
   create_table "matches", force: :cascade do |t|
     t.datetime "date"
@@ -31,7 +46,6 @@ ActiveRecord::Schema.define(version: 20171121210831) do
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.boolean "is_admin"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,6 +66,7 @@ ActiveRecord::Schema.define(version: 20171121210831) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "token"
+    t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   after_initialize :default_values
 
   has_one :profile, dependent: :destroy
+  has_and_belongs_to_many :days
   has_and_belongs_to_many :matches
 
   def has_profile?
@@ -19,6 +20,7 @@ class User < ApplicationRecord
   end
 
   def default_values
-    self.profile ||= Profile.create!(first_name: "Mr.", last_name: "Student")
+    self.is_admin ||= false
   end
+
 end

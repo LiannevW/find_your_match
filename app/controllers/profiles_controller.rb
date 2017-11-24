@@ -35,6 +35,6 @@ end
  private
 
    def profile_params
-     params.require(:profile).permit(:first_name, :last_name, :is_admin)
+     params.require(:profile).permit(:first_name, :last_name)
    end
 end
