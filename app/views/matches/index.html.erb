@@ -14,11 +14,13 @@
                 <%= match.users[0].profile.full_name %>
                 +
                 <%= match.users[1].profile.full_name %>
+                <br>
               <% end %>
               <%= link_to "Regenerate", matches_path, class: "btn btn-default" %>
             <% end %>
 
             <% if @match %>
+
               <h4>Today your pair is:
               </h4>
               <%= @match.users[1].profile.full_name %>
