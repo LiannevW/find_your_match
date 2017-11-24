@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!
 
   def home
-    if current_user.is_admin
+    if current_user.profile.is_admin
       @users = User.all
       @matches = Match.where('date BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all
     else

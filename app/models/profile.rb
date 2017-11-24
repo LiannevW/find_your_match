@@ -8,4 +8,7 @@ class Profile < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def default_values
+    self.is_admin ||= false
+  end
 end
