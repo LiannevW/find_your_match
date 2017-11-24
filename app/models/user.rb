@@ -20,7 +20,7 @@ class User < ApplicationRecord
   end
 
   def default_values
-    self.is_admin ||= false
+    self.profile ||= Profile.create!(first_name: "Mr.", last_name: "Student")
   end
 
 end
